@@ -10,3 +10,16 @@ export const mergePostWithUsers = (posts: Post[], users: User[]) => {
     };
   });
 };
+
+export const mergePostWithUserIndexed = (
+  posts: Post[],
+  users: Record<number, User>
+) => {
+  return posts.map((post) => {
+    const user = users[post.userId];
+    return {
+      ...post,
+      user,
+    };
+  });
+};
