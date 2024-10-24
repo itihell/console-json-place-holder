@@ -7,6 +7,6 @@ const viewData = async () => {
     const posts = await (0, post_1.getPost)();
     const users = await (0, users_1.getUsers)();
     const customPosts = (0, mergePostWithUsers_1.mergePostWithUsers)(posts, users);
-    console.log(customPosts);
+    console.log(users);
 };
 viewData();
