@@ -1,5 +1,5 @@
-import { getPost } from "./controllers/post";
-import { getUsers } from "./controllers/users";
+import { getPost } from "./controllers/postFetch.controller";
+import { getUsers } from "./controllers/userFetch.controller";
 import { Post } from "./interface/posts.interface";
 import { User } from "./interface/users.interface";
 import {
