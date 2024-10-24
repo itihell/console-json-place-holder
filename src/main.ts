@@ -6,6 +6,7 @@ import {
   setIndexUser,
   mergePostWithUsers,
   mergePostWithUserIndexed,
+  setIndexPost,
 } from "./utils";
 
 const viewData = async () => {
@@ -14,9 +15,11 @@ const viewData = async () => {
   const users: User[] = await getUsers();
 
   const userIndexed = setIndexUser(users);
-  const customPosts = mergePostWithUserIndexed(posts, userIndexed);
+  const postIndexed = setIndexPost(posts);
 
-  console.log(customPosts);
+  //const customPosts = mergePostWithUserIndexed(posts, userIndexed);
+
+  console.log(postIndexed);
   console.timeEnd("posts");
 };
 
