@@ -18,3 +18,13 @@ export const setIndexPost = (posts: Post[]) => {
     return acc;
   }, {} as Record<number, Post>);
 };
+
+export const groupPostByUserId = (posts: Post[]) => {
+  return posts.reduce((acc, post) => {
+    if (!acc[post.userId]) {
+      acc[post.userId] = [];
+    }
+    acc[post.userId].push(post);
+    return acc;
+  }, {} as Record<number, Post[]>);
+};
