@@ -3,15 +3,20 @@ import { getUsers } from "./controllers/users";
 import { Post } from "./interface/posts.interface";
 import { User } from "./interface/users.interface";
 import { getUserIdByPost } from "./utils/getUserIdByPost";
-import { mergePostWithUsers } from "./utils/mergePostWithUsers";
+import { mapUserData } from "./utils/mapUserData";
+import {
+  mergePostWithUsers,
+  mergeUserWithPostsIndexByUser,
+} from "./utils/mergePostWithUsers";
+import { setIndexPost, setIndexUser } from "./utils/setIndexRecord";
 
 const viewData = async () => {
-  const posts: Post[] = await getPost();
   const users: User[] = await getUsers();
+  const posts: Post[] = await getPost();
+  const mapUsers = await mapUserData([...users]);
+  const usersIndexed = setIndexUser(mapUsers);
 
-  const customPosts = mergePostWithUsers(posts, users);
-
-  console.log(users);
+  const mergePostAndUsers = mergeUserWithPostsIndexByUser(usersIndexed, posts);
 };
 
 viewData();
