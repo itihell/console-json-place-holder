@@ -28,3 +28,4 @@ export const groupPostByUserId = (posts: Post[]) => {
     return acc;
   }, {} as Record<number, Post[]>);
 };
+
